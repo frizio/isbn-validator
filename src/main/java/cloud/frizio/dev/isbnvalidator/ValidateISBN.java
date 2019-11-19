@@ -15,7 +15,7 @@ public class ValidateISBN {
           throw new NumberFormatException("ISBN number can only contain numeric digits");
         }
       } else {
-        total += isbn.charAt(i) * (10 - i);
+        total += Character.getNumericValue(isbn.charAt(i)) * (10 - i);
       }
     }
     if (total % 11 == 0) {
