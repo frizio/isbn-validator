@@ -3,14 +3,15 @@ package cloud.frizio.dev.isbnvalidator;
 public class ValidateISBN {
 
 	public boolean checkValidISBN(String isbn) {
-    if (isbn == "8807883686") {
-      return true;
+    int total = 0;
+    for (int i = 0; i < 10; i++) {
+      total += isbn.charAt(i) * (10 - i);
     }
-    return false;
-
-	}
-
-
-
+    if (total % 11 == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   
 }
