@@ -52,4 +52,11 @@ public class ValidateISBNTest {
       );
     }
 
+    @Test
+    public void ISBNnumberEndingWithXareValid() {
+      ValidateISBN validator = new ValidateISBN();
+      boolean result = validator.checkISBN("012000030X");
+      assertTrue(result);
+    }
+
 }
