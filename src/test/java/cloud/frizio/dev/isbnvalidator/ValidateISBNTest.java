@@ -41,4 +41,15 @@ public class ValidateISBNTest {
       );
     }
 
+    @Test
+    public void nonNumericISBNAreNotAllowed() {
+      ValidateISBN validator = new ValidateISBN();
+      assertThrows(
+        NumberFormatException.class, 
+        () -> { 
+          validator.checkISBN("helloworld");
+        } 
+      );
+    }
+
 }
