@@ -2,7 +2,10 @@ package cloud.frizio.dev.isbnvalidator;
 
 public class ValidateISBN {
 
-	public boolean checkValidISBN(String isbn) {
+	public boolean checkISBN(String isbn) {
+    if (isbn.length() != 10) {
+      throw new NumberFormatException("ISBN number must be 10 digits long");
+    }
     int total = 0;
     for (int i = 0; i < 10; i++) {
       total += isbn.charAt(i) * (10 - i);
