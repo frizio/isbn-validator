@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class ValidateISBNTest {
@@ -57,6 +58,12 @@ public class ValidateISBNTest {
       ValidateISBN validator = new ValidateISBN();
       boolean result = validator.checkISBN("012000030X");
       assertTrue(result);
+    }
+
+    // 13 Digits ISBN number
+    @Test
+    public void checkValid13DigitsISBN() {
+      fail();
     }
 
 }
