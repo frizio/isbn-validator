@@ -1,6 +1,6 @@
-package cloud.frizio.dev.isbnvalidator;
+package cloud.frizio.dev.isbntools;
 
-public class ValidateISBN {
+public class ISBNValidator {
 
   private static final int SHORT_ISBN_MULTIPLIER = 11;
   private static final int LONG_ISBN_MULTIPLIER = 10;

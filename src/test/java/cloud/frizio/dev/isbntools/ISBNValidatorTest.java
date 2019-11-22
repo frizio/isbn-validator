@@ -1,4 +1,4 @@
-package cloud.frizio.dev.isbnvalidator;
+package cloud.frizio.dev.isbntools;
 
 /*
 import org.junit.Test;
@@ -11,11 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class ValidateISBNTest {
+public class ISBNValidatorTest {
 
     @Test
     public void checkValid10DigitISBN() {
-      ValidateISBN validator = new ValidateISBN();
+      ISBNValidator validator = new ISBNValidator();
       boolean result = validator.checkISBN("8807883686");
       assertTrue(result, "First value");
       // Test another value
@@ -25,14 +25,14 @@ public class ValidateISBNTest {
 
     @Test
     public void checkInvalid10DigitISBN() {
-      ValidateISBN validator = new ValidateISBN();
+      ISBNValidator validator = new ISBNValidator();
       boolean result = validator.checkISBN("8807883687");
       assertFalse(result);
     }
 
     @Test
     public void nineDigitISBNsAreNotAllowed() {
-      ValidateISBN validator = new ValidateISBN();
+      ISBNValidator validator = new ISBNValidator();
       assertThrows(
         NumberFormatException.class, 
         () -> { 
@@ -43,7 +43,7 @@ public class ValidateISBNTest {
 
     @Test
     public void nonNumericISBNAreNotAllowed() {
-      ValidateISBN validator = new ValidateISBN();
+      ISBNValidator validator = new ISBNValidator();
       assertThrows(
         NumberFormatException.class, 
         () -> { 
@@ -54,7 +54,7 @@ public class ValidateISBNTest {
 
     @Test
     public void TenDigitISBNnumberEndingWithXareValid() {
-      ValidateISBN validator = new ValidateISBN();
+      ISBNValidator validator = new ISBNValidator();
       boolean result = validator.checkISBN("012000030X");
       assertTrue(result);
     }
@@ -62,7 +62,7 @@ public class ValidateISBNTest {
     // 13 Digits ISBN number
     @Test
     public void checkValid13DigitsISBN() {
-      ValidateISBN validator = new ValidateISBN();
+      ISBNValidator validator = new ISBNValidator();
       boolean result = validator.checkISBN("9781853260087");
       assertTrue(result, "First value");
       // Test another value
@@ -72,7 +72,7 @@ public class ValidateISBNTest {
 
     @Test
     public void checkInvalid13DigitISBN() {
-      ValidateISBN validator = new ValidateISBN();
+      ISBNValidator validator = new ISBNValidator();
       boolean result = validator.checkISBN("9781853260088");
       assertFalse(result);
     }
