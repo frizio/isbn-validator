@@ -12,7 +12,7 @@ public class StackManagementTest {
 
     // STUB of the external WEB service
     ExternalISBNDataService webService = Mockito.mock(ExternalISBNDataService.class);
-    Mockito.when(webService.lookup(Mockito.anyString())).thenReturn(new Book("0140177396", "abc", "abc"));
+    Mockito.when(webService.lookup(Mockito.anyString())).thenReturn(new Book("0140177396", "Of Mice and Man", "J. Steinbeck"));
 
     // STUB of the external DATABASE service
     ExternalISBNDataService databaseService = Mockito.mock(ExternalISBNDataService.class);
