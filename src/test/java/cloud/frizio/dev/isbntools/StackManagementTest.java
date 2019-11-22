@@ -11,20 +11,12 @@ public class StackManagementTest {
   public void canGetAcorrectLocatorCode() {
 
     // STUB of the external WEB service
-    ExternalISBNDataService webService = new ExternalISBNDataService() {
-      @Override
-      public Book lookup(String isbn) {
-        return new Book(isbn, "Of Mice and Man", "J. Steinbeck");
-      }
-    };
+    ExternalISBNDataService webService = Mockito.mock(ExternalISBNDataService.class);
+    Mockito.when(webService.lookup(Mockito.anyString())).thenReturn(new Book("0140177396", "abc", "abc"));
 
     // STUB of the external DATABASE service
-    ExternalISBNDataService databaseService = new ExternalISBNDataService() {
-      @Override
-      public Book lookup(String isbn) {
-        return null;
-      }
-    };
+    ExternalISBNDataService databaseService = Mockito.mock(ExternalISBNDataService.class);
+    Mockito.when(databaseService.lookup(Mockito.anyString())).thenReturn(null);
 
     StockManager stockManager = new StockManager();
     stockManager.setWebService(webService);
