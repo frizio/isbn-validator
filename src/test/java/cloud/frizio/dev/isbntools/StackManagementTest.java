@@ -9,8 +9,8 @@ public class StackManagementTest {
   @Test
   public void canGetAcorrectLocatorCode() {
 
-    // MOCKUP of the external service
-    ExternalISBNDataService testService = new ExternalISBNDataService() {
+    // MOCKUP of the external WEB service
+    ExternalISBNDataService webService = new ExternalISBNDataService() {
       @Override
       public Book lookup(String isbn) {
         // This is a test STUB: dependency required bu the testing method
@@ -18,8 +18,17 @@ public class StackManagementTest {
       }
     };
 
+    // MOCKUP of the external DATABASE service
+    ExternalISBNDataService databaseService = new ExternalISBNDataService() {
+      @Override
+      public Book lookup(String isbn) {
+        return null;
+      }
+    };
+
     StockManager stockManager = new StockManager();
-    stockManager.setService(testService);
+    stockManager.setWebService(webService);
+    stockManager.setDatabaseService(databaseService);
 
     String isbn = "0140177396";
     String locatorCode = stockManager.getLocatorCode(isbn);

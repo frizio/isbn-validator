@@ -2,10 +2,15 @@ package cloud.frizio.dev.isbntools;
 
 public class StockManager {
 
-  private ExternalISBNDataService service;
+  private ExternalISBNDataService webService;
+  private ExternalISBNDataService databaseService;
 
-  public void setService(ExternalISBNDataService service) {
-    this.service = service;
+  public void setWebService(ExternalISBNDataService service) {
+    this.webService = service;
+  }
+
+  public void setDatabaseService(ExternalISBNDataService service) {
+    this.databaseService = service;
   }
 
   /*
@@ -15,7 +20,10 @@ public class StockManager {
   */
 
 	public String getLocatorCode(String isbn) {
-    Book book = service.lookup(isbn);
+    Book book = webService.lookup(isbn);
+    if (book == null) {
+      book = databaseService.lookup(isbn);
+    }
     StringBuilder locator = new StringBuilder();
     locator.append(isbn.substring(isbn.length()-4));
     locator.append(book.getAuthor().substring(0, 1));
